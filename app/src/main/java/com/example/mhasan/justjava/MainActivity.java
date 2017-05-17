@@ -34,8 +34,11 @@ public class MainActivity extends AppCompatActivity {
      */
     @RequiresApi(api = Build.VERSION_CODES.N)
     public void submitOrder(View view) {
+        int price= numberOfCoffees*5;
         display(numberOfCoffees);
-        displayPrice(numberOfCoffees * 5);
+        String priceMessage= "That would be $ " +price+ " please ! ";
+        priceMessage=priceMessage+"\nThank you ";
+        displayPriceMessage(priceMessage );
     }
 
     /**
@@ -54,6 +57,9 @@ public class MainActivity extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.N)
     private void displayPrice(int number) {
         priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
+    }
+    private void displayPriceMessage(String priceMsg) {
+     priceTextView.setText(priceMsg);
     }
 
     public void increment(View view) {
